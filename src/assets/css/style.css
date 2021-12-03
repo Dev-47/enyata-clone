@@ -505,45 +505,69 @@ nav {
     text-decoration: none;
     transition: 0.5s ease-in-out;
   }
-}
 
-/* times */
-.times {
-  /* border-radius: 1rem; */
-  transition: 1s;
-  position: relative;
-}
+  .menu-icon,
+  .menu-icon:before,
+  .menu-icon:after {
+    display: inline-block;
+    background-color: white;
+    height: 0.35rem;
+    width: 1.85rem;
+    transition: transform 0.5s cubic-bezier(0.01, 0.87, 0.36, 0.99);
+    transform-origin: left;
+    border-radius: 2px;
+  }
 
-.times path {
-  position: absolute;
-}
+  .menu-icon:before,
+  .menu-icon:after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
 
-.times path:nth-child(1) {
-  transform: rotateZ(45deg);
-  left: -5%;
-}
+  .menu-icon {
+    position: relative;
+    transition: background-color 5;
+    animation: fadeIn 1s cubic-bezier(0.01, 0.87, 0.36, 0.99) 0s 1 normal
+      forwards;
+  }
 
-.times path:nth-child(2) {
-  display: none;
-}
+  .menu-icon:before {
+    top: 175%;
+  }
 
-.times path:nth-child(3) {
-  transform: rotateZ(-45deg);
-}
+  .menu-icon:after {
+    bottom: 175%;
+  }
 
-.dont-show {
-  opacity: 0;
-  animation: min-one 1s forwards;
-}
+  .menu-icon.active {
+    animation: fadeOut 0.5s cubic-bezier(0.01, 0.87, 0.36, 0.99) 0s 1 normal
+      forwards;
+  }
 
-.dont-show:nth-child(2) {
-  opacity: 0;
-  /* animation: mid-one 0.4s forwards; */
-}
+  @keyframes fadeOut {
+    from {
+      background-color: white;
+    }
+    to {
+      background-color: rgba(255, 74, 74, 0);
+    }
+  }
 
-/* nav-animation */
-@keyframes mid-one {
-  to {
-    opacity: 1;
+  @keyframes fadeIn {
+    from {
+      background-color: rgba(255, 74, 74, 0);
+    }
+    to {
+      background-color: white;
+    }
+  }
+
+  .menu-icon.active:before {
+    transform: rotate(-45deg);
+  }
+
+  .menu-icon.active:after {
+    transform: rotate(45deg);
   }
 }

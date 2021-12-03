@@ -23,6 +23,12 @@ export default function BaseLayout() {
   const path2 = "M0,14 30,14";
   const path3 = is_open ? "m 0 0 l 30 30 z" : "M0,23 30,23";
 
+  // var tween = KUTE.fromTo(
+  //   "#rectangle",
+  //   { path: "#rectangle" },
+  //   { path: "#star" }
+  // ).start();
+
   return (
     <div>
       <Loader />
@@ -66,28 +72,14 @@ export default function BaseLayout() {
             </a>
           </div>
 
-          <buttton
-            className={is_open ? "nav-menu" : "nav-menu-open"}
+          <a
+            href="#"
+            className={
+              is_open ? "nav-menu menu-icon active" : " menu-icon nav-menu"
+            }
             onClick={openNavMenu}
-          >
-            <svg width="30" height="30" className="">
-              <path d={path1} stroke="#fff" stroke-width="5" />
-
-              <path
-                d={path2}
-                stroke="#fff"
-                stroke-width="5"
-                style={{ opacity: is_open ? 0 : 1 }}
-              />
-
-              <path
-                d={path3}
-                stroke="#fff"
-                stroke-width="5"
-                style={{ transition: "1s" }}
-              />
-            </svg>
-          </buttton>
+          ></a>
+          {/* <a href="#" class="menu-icon"></a> */}
         </nav>
 
         <div className={is_open ? "nav-menu-links" : "nav-menu-opened"}>
