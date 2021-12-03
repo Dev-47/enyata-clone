@@ -119,8 +119,6 @@ body {
 
 /* loader media query */
 @media (max-width: 468px) {
-
-
   .fake-boxes {
     left: -45%;
     opacity: 0.4;
@@ -229,7 +227,8 @@ nav {
   z-index: 1;
 }
 
-.nav-menu {
+.nav-menu,
+.nav-menu-links {
   display: none;
 }
 
@@ -416,14 +415,13 @@ nav {
 /* homepage media query */
 
 @media (max-width: 468px) {
-
-
   nav {
-    padding: 5em 1.5em;
+    padding: 5em 1.5em 0 1.5em;
+    margin: 0 0 0 0;
   }
 
   .nav-menu {
-    display: block
+    display: block;
   }
 
   .nav-links {
@@ -431,41 +429,56 @@ nav {
     padding: 5rem;
   }
 
-  .flower, .hero-graph, .hero-image, .hero-check-card, .orange-dots {
+  .flower,
+  .hero-graph,
+  .hero-image,
+  .hero-check-card,
+  .orange-dots {
     display: none;
   }
 
   .intro-content {
-    border: 2px solid rgb(236, 144, 144);
+    width: 100%;
+    padding: 1em;
+    display: grid;
+    place-items: center;
   }
-  
+
   .landing-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 26rem;
-    left: 10%;
+    width: 100%;
     top: 0;
+    left: 0;
     margin: 0;
-    border: 2px solid rgb(0, 217, 255);
     text-align: center;
   }
 
   .label-landing {
     font-size: 2.2rem;
   }
-  
+
   .paragraph-landing {
     font-size: 1.2rem;
     line-height: 2rem;
     width: 100%;
   }
+
+  /* nav-menu-links */
+  .nav-menu-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3em;
+    width: 100%;
+  }
+
+  .nav-menu-links:not(:last-of-type) {
+    border-top: 1.5px solid grey;
+  }
+
+  .nav-menu-links .link {
+    color: white;
+    padding: 1em;
+  }
 }
 
 @media (max-width: 768px) {
-  .landing-text {
-    /* width: 30rem; */
-  }
 }

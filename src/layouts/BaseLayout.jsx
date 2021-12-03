@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Confetti from "../components/Confetti";
 import HeroGraph from "../components/HeroGraph";
 import Loader from "../components/Loader";
@@ -8,6 +10,12 @@ import HeroImage from "../assets/img/hero-image.png";
 import HeroCheck from "../components/HeroCheck";
 
 export default function BaseLayout() {
+  const [is_open, toggle_state] = useState(true);
+
+  const openNavMenu = () => {
+    toggle_state(!is_open);
+  };
+
   return (
     <div>
       <Loader />
@@ -47,18 +55,36 @@ export default function BaseLayout() {
               academy
             </a>
             <a href="#" className="link work-link">
-              <span className="wo-text">wo</span>rk with us
+              work with us
             </a>
           </div>
-          
-          <span className="nav-menu">
+
+          <buttton
+            className={is_open ? "nav-menu" : "nav-menu-opened"}
+            onClick={openNavMenu}
+          >
             <svg width="30" height="30">
               <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
               <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
               <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
             </svg>
-          </span>
+          </buttton>
         </nav>
+
+        <div className={is_open ? "nav-menu-links" : "nav-menu-opened"}>
+          <a href="#" className="link">
+            about us
+          </a>
+          <a href="#" className="link">
+            showcase
+          </a>
+          <a href="#" className="link">
+            academy
+          </a>
+          <a href="#" className="link">
+            with us
+          </a>
+        </div>
 
         <div className="intro-content">
           <div className="section-one">
@@ -76,6 +102,7 @@ export default function BaseLayout() {
               <button className="hero-btn">Get started</button>
             </div>
           </div>
+
           <div className="section-two">
             <OrangeDots className="orange-dots" />
             <HeroGraph className="hero-graph" />
