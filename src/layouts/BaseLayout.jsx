@@ -10,11 +10,18 @@ import HeroImage from "../assets/img/hero-image.png";
 import HeroCheck from "../components/HeroCheck";
 
 export default function BaseLayout() {
-  const [is_open, toggle_state] = useState(true);
+  const [is_open, toggle_state] = useState(false);
 
   const openNavMenu = () => {
     toggle_state(!is_open);
   };
+
+  const bar_cords = ["M0,5 30,5", "M0,14 30,14", "M0,23 30,23"];
+  const times_cords = ["m 23 0 l -23 30 z", "m 0 0 l 30 30 z"];
+
+  const path1 = is_open ? "m 23 0 l -23 30 z" : "M0,5 30,5";
+  const path2 = "M0,14 30,14";
+  const path3 = is_open ? "m 0 0 l 30 30 z" : "M0,23 30,23";
 
   return (
     <div>
@@ -55,18 +62,30 @@ export default function BaseLayout() {
               academy
             </a>
             <a href="#" className="link work-link">
-              work with us
+              <span className="wo-text">wo</span>rk with us
             </a>
           </div>
 
           <buttton
-            className={is_open ? "nav-menu" : "nav-menu-opened"}
+            className={is_open ? "nav-menu" : "nav-menu-open"}
             onClick={openNavMenu}
           >
-            <svg width="30" height="30">
-              <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
-              <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
-              <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+            <svg width="30" height="30" className="">
+              <path d={path1} stroke="#fff" stroke-width="5" />
+
+              <path
+                d={path2}
+                stroke="#fff"
+                stroke-width="5"
+                style={{ opacity: is_open ? 0 : 1 }}
+              />
+
+              <path
+                d={path3}
+                stroke="#fff"
+                stroke-width="5"
+                style={{ transition: "1s" }}
+              />
             </svg>
           </buttton>
         </nav>
@@ -82,7 +101,7 @@ export default function BaseLayout() {
             academy
           </a>
           <a href="#" className="link">
-            with us
+            work with us
           </a>
         </div>
 
