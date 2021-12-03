@@ -50,6 +50,14 @@ export default function BaseLayout() {
               <span className="wo-text">wo</span>rk with us
             </a>
           </div>
+          
+          <span className="nav-menu">
+            <svg width="30" height="30">
+              <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+              <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+              <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+            </svg>
+          </span>
         </nav>
 
         <div className="intro-content">
