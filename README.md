@@ -1,3 +1,3 @@
-## [Enyata](enyata.com) landing page clone
+## [Enyata](https://enyata.com) landing page clone
 
-preview at [enyata-clone.netlify.app](enyata-clone.netlify.app)
+preview at [enyata-clone.netlify.app](https://enyata-clone.netlify.app)
